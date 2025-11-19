@@ -1,66 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="id" >
 <head>
-    <title>Pendaftaran Berhasil</title>
-    <style>
-        body {
-            background: #e7e7e7;
-            font-family: Arial, sans-serif;
-        }
-        .success-box {
-            width: 600px;
-            margin: 60px auto;
-            background: #f5f0eb;
-            padding: 30px;
-            border-radius: 8px;
-            border: 3px solid #1b75bb;
-            text-align: center;
-        }
-        .success-header {
-            background: #1b75bb;
-            color: white;
-            padding: 15px;
-            font-size: 20px;
-            border-radius: 5px;
-            margin-bottom: 25px;
-        }
-        .success-icon {
-            font-size: 70px;
-            color: #1b75bb;
-            margin-bottom: 20px;
-        }
-        .text {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        .btn-home {
-            background: #1b75bb;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            margin-top: 25px;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .btn-home:hover {
-            background: #155f98;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pendaftaran Berhasil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="min-h-screen bg-gradient-to-tr from-blue-400 to-blue-700 flex items-center justify-center p-6">
 
-<div class="success-box">
-    <div class="success-header">Pendaftaran Berhasil</div>
+  <div class="bg-white rounded-xl shadow-xl max-w-md w-full p-8 text-center">
+    <h1 class="text-3xl font-semibold text-blue-700 mb-6">Pendaftaran Berhasil</h1>
 
-    <div class="success-icon">✔️</div>
+    <svg class="mx-auto mb-8 w-20 h-20 stroke-blue-700" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 64 64" >
+      <circle class="stroke-dasharray-[150] stroke-dashoffset-[150] animate-drawCircle" cx="32" cy="32" r="28" />
+      <path class="stroke-dasharray-[48] stroke-dashoffset-[48] animate-drawCheck" d="M20 34 l10 10 l18 -18" />
+    </svg>
 
-    <p class="text">Terima kasih <strong>{{ $data->nama }}</strong> telah melakukan pendaftaran.</p>
-    <p class="text">Data Anda sudah kami terima dan akan segera diproses.</p>
+    <p class="text-lg text-gray-800 mb-2">
+      Terima kasih <strong class="font-semibold text-blue-700">{{ $data->nama }}</strong> telah melakukan pendaftaran.
+    </p>
+    <p class="text-lg text-gray-700 mb-8">
+      Data Anda sudah kami terima dan akan segera diproses.
+    </p>
 
-    <a href="{{ url('/') }}" class="btn-home">Kembali ke Beranda</a>
-</div>
+    <a href="{{ url('/') }}" 
+       class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition duration-300"
+       role="button">
+      Kembali ke Beranda
+    </a>
+  </div>
+
+  <style>
+    @keyframes drawCircle {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    @keyframes drawCheck {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    .animate-drawCircle {
+      animation: drawCircle 0.6s ease forwards;
+    }
+    .animate-drawCheck {
+      animation: drawCheck 0.4s ease 0.6s forwards;
+    }
+  </style>
 
 </body>
 </html>
